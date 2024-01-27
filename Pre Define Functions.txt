@@ -1,0 +1,45 @@
+Pre Define Functions
+
+Example#1
+
+import math
+x= math.sqrt(64)
+print(x)
+
+
+Example#2
+
+import math
+x= math.ceil(1.4)
+y=math.floor(1.4)
+
+
+Example#3
+print(x) #returns 2
+print(y) #returns 1
+
+Example#4
+import math
+x=math.pi
+print(x)
+
+Example#5
+import datetime
+x=datetime.datetime.now()
+print(x)
+
+Example#6
+import datetime
+x=datetime.datetime(2020,5,17)
+print(x)
+
+Example#7
+import datetime
+x=datetime.datetime.now()
+print(x.year)
+print(x.strftime("%A"))
+
+Example#8
+import datetime
+x=datetime.datetime(2024,1,27)
+print(x.strftime("%B"))
