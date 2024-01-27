@@ -1,0 +1,41 @@
+User Define Functions
+
+Example#1
+#declaring a function
+def fun():
+    print("inside function")
+# Driver's Code
+# Calling Function
+fun()
+
+Example#2
+def student(firstname, lastname):
+    print(firstname, lastname)
+# Keyword arguments
+student(firstname ='Greek', lastname='Practice')
+student(lastname='Practice', firstname='Greek')
+
+Example#3
+def evenOdd(x):
+    if (x % 2 == 0):
+        print("even")
+    else:
+        print("odd")
+evenOdd(3)
+evenOdd(3)
+
+Example#4
+def myfun(x,y= 50):
+    print("x: ",x)
+    print("y: ",y)
+    
+myfun(10)
+
+Example#5
+#function with two Arguments
+def add_number (num1,num2):
+    sum = num1 + num2
+    print("Sum: ",sum)
+
+#function call with two values    
+add_number(5,4)
