@@ -4,40 +4,43 @@ Example#1
 import math
 x= math.sqrt(64)
 print(x)
-
+#Result is:8.0
 
 Example#2
 import math
-x= math.ceil(1.4)
-y=math.floor(1.4)
-
+x= math.ceil(4.5)
+y=math.floor(3.5)
+print(x) #returns 5
+print(y) #returns 3
+#Result is:5,3
 
 Example#3
-print(x) #returns 2
-print(y) #returns 1
-
-Example#4
 import math
 x=math.pi
 print(x)
+#Result is:3.141592653589793
 
-Example#5
+Example#4
 import datetime
 x=datetime.datetime.now()
 print(x)
+Result is:"current time&date" i.e(2024-02-02 17:34:04.294874)
+
+Example#5
+import datetime
+x=datetime.datetime(2024,5,17)
+print(x)
+#Result is:2024-05-17 00:00:00
 
 Example#6
-import datetime
-x=datetime.datetime(2020,5,17)
-print(x)
-
-Example#7
 import datetime
 x=datetime.datetime.now()
 print(x.year)
 print(x.strftime("%A"))
+#Result is:"current year&day" i.e(2024, Friday)
 
-Example#8
+Example#7
 import datetime
 x=datetime.datetime(2024,1,27)
 print(x.strftime("%B"))
+#Result is:January
