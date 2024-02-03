@@ -1,3 +1,4 @@
+Ex1
 # define a class
 class Bike:
     name = ""
