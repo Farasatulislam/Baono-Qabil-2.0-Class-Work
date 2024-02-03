@@ -1,0 +1,82 @@
+# define a class
+class Bike:
+    name = ""
+    gear = 0
+
+# create object of class
+bike1 = Bike()
+
+# access attributes and assign new values
+bike1.gear = 11
+bike1.name = "Mountain Bike"
+
+print(f"Name: {bike1.name}, Gears: {bike1.gear} ")
+
+Ex#2
+# define a class
+class student:
+    name = ""
+    roll = 0
+    contact_no =0
+
+# create object of class
+students = student()
+
+# access attributes and assign new values
+students.roll=int(input("Enter Roll Num:"))
+students.name=str(input("Enter Name:")) #= "Farasat"
+students.contact_no =int(input("Enter Contact num:")) #= 123456
+
+print(f"Name: {students.name}, Roll: {students.roll}, {students.contact_no} ")
+
+Ex3
+# Python3 program to
+# demonstrate instantiating
+# a class
+class Human:
+	# A simple class
+	# attribute
+	attr1 = "human"
+	attr2 = "student"
+
+	# A sample method
+	def fun(self):
+		print("I'm a", self.attr1)
+		print("I'm a", self.attr2)
+# Driver code
+# Object instantiation
+Rodger = Human()
+
+# Accessing class attributes
+# and method through objects
+print(Rodger.attr1)
+Rodger.fun()
+
+Ex4
+class Python:
+	def __init__(self, name, company):
+		self.name = name
+		self.company = company
+	def show(self):
+		print("Hello my name is " + self.name+" and I" +
+			" work in "+self.company+".")
+obj = Python("syed", "Bano Qabil")
+obj.show()
+
+Ex5
+# define a class
+class Employee:
+    # define an attribute
+    employee_id = 0
+
+# create two objects of the Employee class
+employee1 = Employee()
+employee2 = Employee()
+
+# access attributes using employee1
+employee1.employeeID = 1001
+print(f"Employee ID: {employee1.employeeID}")
+
+# access attributes using employee2
+employee2.employeeID = 1002
+print(f"Employee ID: {employee2.employeeID}")
