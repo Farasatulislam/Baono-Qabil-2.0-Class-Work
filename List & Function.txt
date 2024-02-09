@@ -2,6 +2,7 @@ Example#1
 # list with elements of different data types
 list1 = [1, "Hello", 3.4]
 print(list1)
+#Result is:[1, 'Hello', 3.4]
 
 Example#2
 # List slicing in Python
@@ -16,6 +17,9 @@ print(my_list[5:])
 
 # items beginning to end
 print(my_list[:])
+#Result is:['o', 'g', 'r']
+['a', 'm', 'i', 'z']
+['p', 'r', 'o', 'g', 'r', 'a', 'm', 'i', 'z']
 
 Example#3
 languages = ["Python", "Swift", "C++"]
@@ -25,8 +29,10 @@ print(languages[-1])   # C++
 
 # access item at index 2
 print(languages[-3])   # Python
+#Result is:C++
+Python
 
-Ex4
+Example#4
 numbers = [1, 3, 5]
 
 even_numbers = [4, 6, 8]
@@ -35,6 +41,7 @@ even_numbers = [4, 6, 8]
 numbers.extend(even_numbers)
 
 print("List after append:", numbers)
+#Result is:List after append: [1, 3, 5, 4, 6, 8]
 
 Ex5
 numbers = [10, 30, 40]
