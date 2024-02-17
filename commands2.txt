@@ -1,0 +1,342 @@
+Ex#1
+import streamlit as st
+import pandas as pd
+st.title("Welcome Bano Qabil")
+
+#creating dataset
+
+df=pd.DataFrame({'first':[1,2,3,4,5,],'second':[6,7,8,9,10]})
+st.write(df)
+
+# or
+df  #magic comments
+
+EX#2
+import streamlit as st
+
+i1 = st.button("button 1")
+st.write("value:", i1)
+
+i2 = st.checkbox("reset button")
+
+Ex#3
+import streamlit as st
+
+st.header('This is a header with a divider', divider='rainbow')
+st.header('_ Sir.Ghufran Kamal_ is :blue[cool] :sunglasses:')
+footer="""<style>
+a:link , a:visited{
+color: blue;
+background-color: transparent;
+text-decoration: underline;
+}
+
+a:hover,  a:active {
+color: red;
+background-color: transparent;
+text-decoration: underline;
+}
+
+.footer {
+position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+background-color: white;
+color: black;
+text-align: center;
+}
+</style>
+<div class="footer">
+<p>Developed with ❤ by <a style='display: block; text-align: center;' href="https://banoqabil.pk" target="_blank">Bano Qabil Alkhidmat </a></p>
+</div>
+"""
+st.markdown(footer,unsafe_allow_html=True)
+
+EX#4
+# image example
+import streamlit as st
+from PIL import Image
+
+# Title
+st.title("Display Image Example")
+
+# Load image
+image = Image.open("images.png")
+
+# Display image
+st.image(image, caption='Example Image', use_column_width=True)
+
+EX#5
+import streamlit as st
+
+# Define functions for each page
+def page_home():
+    st.title("Home Page")
+    st.write("Welcome to the Home Page!")
+
+def page_about():
+    st.title("About Page")
+    st.write("Welcome to the About Page!")
+
+def page_contact():
+    st.title("Contact Page")
+    st.write("Welcome to the Contact Page!")
+
+# Define a function to display navigation
+def main():
+    st.sidebar.title("Navigation")
+    page = st.sidebar.radio("Go to", options=["Home", "About", "Contact"])
+
+    if page == "Home":
+        page_home()
+    elif page == "About":
+        page_about()
+    elif page == "Contact":
+        page_contact()
+
+# Run the main function to start the app
+if __name__ == "__main__":
+    main()
+
+
+EX#6
+import streamlit as st
+import pandas as pd
+st.title("Welcome to Our Car Sailing Web Page")
+st.sidebar.success("Name of pages")
+df = pd.DataFrame({'Car Name' : ['Lamborghini','Mercedes','Audi','Ferrari']})
+sel = st.selectbox("Which car you want to buy",df['Car Name'])
+i = st.button('click')
+#st.write("")
+if i:
+    st.write("You have selected : ",sel)
+    name = st.text_input("Write your name : ")
+    age = st.text_input("Write your age : ")
+    date = st.text_input("Write date of buy : ")
+
+
+EX#7
+import  streamlit as st
+import sqlite3
+
+# Function to create a database connection
+def create_connection(db_file):
+    conn = None
+    try:
+        conn = sqlite3.connect(db_file)
+    except sqlite3.Error as e:
+        st.error(e)
+    return conn
+
+# Function to create a table in the database
+def create_table(conn):
+    try:
+        c = conn.cursor()
+        c.execute('''CREATE TABLE IF NOT EXISTS records (
+                        id INTEGER PRIMARY KEY,
+                        name TEXT NOT NULL
+                     )''')
+    except sqlite3.Error as e:
+        st.error(e)
+
+# Function to insert a record into the database
+def insert_record(conn, name):
+    try:
+        c = conn.cursor()
+        c.execute("INSERT INTO records (name) VALUES (?)", (name,))
+        conn.commit()
+        st.success(f"Record '{name}' added successfully!")
+    except sqlite3.Error as e:
+        st.error(e)
+
+# Function to remove a record from the database
+def remove_record(conn, id):
+    try:
+        c = conn.cursor()
+        c.execute("DELETE FROM records WHERE id=?", (id,))
+        conn.commit()
+        st.success("Record removed successfully!")
+    except sqlite3.Error as e:
+        st.error(e)
+
+# Main function to run the app
+def main():
+    st.title("Database Operations with Streamlit")
+
+    # Create a database connection
+    conn = create_connection("example.db")
+
+    if conn is not None:
+        create_table(conn)
+
+        # Add record section
+        st.header("Add Record")
+        new_name = st.text_input("Enter name to add:")
+        if st.button("Add"):
+            if new_name:
+                insert_record(conn, new_name)
+            else:
+                st.warning("Please enter a name.")
+
+        # Remove record section
+        st.header("Remove Record")
+        record_id = st.text_input("Enter ID of record to remove:")
+        if st.button("Remove"):
+            if record_id:
+                remove_record(conn, record_id)
+            else:
+                st.warning("Please enter the ID of the record.")
+
+        # Display existing records
+        st.header("Existing Records")
+        c = conn.cursor()
+        c.execute("SELECT * FROM records")
+        records = c.fetchall()
+        for record in records:
+            st.write(f"ID: {record[0]}, Name: {record[1]}")
+
+        conn.close()
+    else:
+        st.error("Error: Unable to create database connection.")
+
+if __name__ == "__main__":
+    main()
+
+
+
+EX#8
+# UPDATED: 2 May 2022
+
+import streamlit as st
+# https://discuss.streamlit.io/t/streamlit-option-menu-is-a-simple-streamlit-component-that-allows-users-to-select-a-single-item-from-a-list-of-options-in-a-menu
+# https://icons.getbootstrap.com/
+from streamlit_option_menu import option_menu
+
+st.set_page_config(page_title='Muti-page app example', layout='wide')
+
+def do_upload_tasks():
+    st.markdown('### Upload task file')
+
+def do_view_tasks():
+    st.markdown('### Taxing tasks')
+    st.markdown('''
+    * Task1
+    * Task2
+    * Task3
+    ''')
+
+def do_manage_tasks():
+    st.markdown('### Ticking tasks')
+    st.checkbox('Task1', False)
+    st.checkbox('Task2', True)
+    st.checkbox('Task3', False)
+    c1, c2, c3, _ = st.columns([1,1,1,7])
+    c1.button('Update tasks')
+    c2.button('Add new task...')
+    c3.button('Delete selected tasks')
+
+def do_credentials():
+    st.markdown('### Security rules')
+
+def do_logs():
+    st.markdown('### Blah, blah, blah, ....')
+
+styles = {
+    "container": {"margin": "0px !important", "padding": "0!important", "align-items": "stretch", "background-color": "#fafafa"},
+    "icon": {"color": "black", "font-size": "20px"}, 
+    "nav-link": {"font-size": "20px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
+    "nav-link-selected": {"background-color": "lightblue", "font-size": "20px", "font-weight": "normal", "color": "black", },
+}
+
+menu = {
+    'title': 'Todo App',
+    'items': { 
+        'Home' : {
+            'action': None, 'item_icon': 'house', 'submenu': {
+                'title': None,
+                'items': { 
+                    'View Tasks' : {'action': do_view_tasks, 'item_icon': 'list-task', 'submenu': None},
+                    'Manage Tasks' : {'action': do_manage_tasks, 'item_icon': 'list-check', 'submenu': None},
+                    'Upload Tasks' : {'action': do_upload_tasks, 'item_icon': 'cloud-upload-fill', 'submenu': None},
+                },
+                'menu_icon': None,
+                'default_index': 0,
+                'with_view_panel': 'main',
+                'orientation': 'horizontal',
+                'styles': styles
+            }
+        },
+        'Settings' : {
+            'action': None, 'item_icon': 'gear', 'submenu': {
+                'title': None,
+                'items': { 
+                    'Manage Credentials' : {'action': do_credentials, 'item_icon': 'key', 'submenu': None},
+                    'View Logs' : {'action': do_logs, 'item_icon': 'journals', 'submenu': None},
+                },
+                'menu_icon': None,
+                'default_index': 0,
+                'with_view_panel': 'main',
+                'orientation': 'horizontal',
+                'styles': styles
+            }
+        }
+    },
+    'menu_icon': 'clipboard2-check-fill',
+    'default_index': 0,
+    'with_view_panel': 'sidebar',
+    'orientation': 'vertical',
+    'styles': styles
+}
+
+def show_menu(menu):
+    def _get_options(menu):
+        options = list(menu['items'].keys())
+        return options
+
+    def _get_icons(menu):
+        icons = [v['item_icon'] for _k, v in menu['items'].items()]
+        return icons
+
+    kwargs = {
+        'menu_title': menu['title'] ,
+        'options': _get_options(menu),
+        'icons': _get_icons(menu),
+        'menu_icon': menu['menu_icon'],
+        'default_index': menu['default_index'],
+        'orientation': menu['orientation'],
+        'styles': menu['styles']
+    }
+
+    with_view_panel = menu['with_view_panel']
+    if with_view_panel == 'sidebar':
+        with st.sidebar:
+            menu_selection = option_menu(**kwargs)
+    elif with_view_panel == 'main':
+        menu_selection = option_menu(**kwargs)
+    else:
+        raise ValueError(f"Unknown view panel value: {with_view_panel}. Must be 'sidebar' or 'main'.")
+
+    if menu['items'][menu_selection]['submenu']:
+        show_menu(menu['items'][menu_selection]['submenu'])
+
+    if menu['items'][menu_selection]['action']:
+        menu['items'][menu_selection]['action']()
+
+show_menu(menu)
+
+EX#9
+import streamlit as st
+import time
+st.balloons()
+st.snow()
+progress_text = "Operation in progress. Please wait."
+my_bar = st.progress(0, text=progress_text)
+
+for percent_complete in range(100):
+    time.sleep(0.01)
+    my_bar.progress(percent_complete + 1, text=progress_text)
+time.sleep(1)
+my_bar.empty()
+
+st.button("Rerun")
