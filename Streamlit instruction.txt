@@ -1,0 +1,14 @@
+step 1:		pip install virtualenv on cmd mode
+step 2: 	create folder streamlit tut on desktop and copy path
+step 3: 	cmd mode and streamlit tut folder run this command virtualenv streamlitenv
+step 4:		cmd mode select script folder type activate
+step 5:		show on cmd (streamlitenv) C:\Users\Ghuffi\Desktop\streamlit tut\streamlitenv\Scripts>
+step 6:		pip install streamlit
+step 7:		streamlit hello
+step 8:		Local URL: http://localhost:8501
+  		Network URL: http://192.168.0.112:8501
+
+Run your Streamlit app.
+		streamlit run app.py
+If this doesn't work, use the long-form command:
+		python -m streamlit run app.py
