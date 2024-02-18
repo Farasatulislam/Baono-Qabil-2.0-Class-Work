@@ -1,0 +1,39 @@
+EX#1
+try:
+    numerator = 10
+    denominator = 0
+
+    result = numerator/denominator
+
+    print(result)
+except:
+    print("Error: Denominator cannot be 0.")
+
+
+EX#2
+try:
+  print("Hello")
+except:
+  print("Something went wrong")
+else:
+  print("Nothing went wrong")
+
+EX#3
+try:
+  print(x)
+except:
+  print("Something went wrong")
+finally:
+  print("The 'try except' is finished")
+
+EX#4
+try:
+  f = open("demofile.txt")
+  try:
+    f.write("Lorum Ipsum")
+  except:
+    print("Something went wrong when writing to the file")
+  finally:
+    f.close()
+except:
+  print("Something went wrong when opening the file")
