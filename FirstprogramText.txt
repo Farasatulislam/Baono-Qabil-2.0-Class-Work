@@ -1,0 +1,11 @@
+<html>
+  <head>
+    <title>Python CIT</title>
+  </head>
+  <body>
+    <h1>Bano Qabil I.T Course/h1>
+    <p>
+      <a href="https://www.banoqabil.pk/">The I.T Course Page</a> shows you how and where you can contribute to freeCodeCamp's community and growth.
+    </p>
+  </body>
+</html>
