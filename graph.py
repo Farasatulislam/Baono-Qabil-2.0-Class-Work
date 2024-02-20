@@ -3,8 +3,9 @@
 import streamlit as st
 # https://discuss.streamlit.io/t/streamlit-option-menu-is-a-simple-streamlit-component-that-allows-users-to-select-a-single-item-from-a-list-of-options-in-a-menu
 # https://icons.getbootstrap.com/
-from streamlit_option_menu
+
 import option_menu
+from streamlit_option_menu
 
 st.set_page_config(page_title='Muti-page app example', layout='wide')
 
