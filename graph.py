@@ -5,7 +5,7 @@ import streamlit as st
 # https://icons.getbootstrap.com/
 
 import option_menu
-from streamlit_option_menu
+from streamlit option_menu
 
 st.set_page_config(page_title='Muti-page app example', layout='wide')
 
