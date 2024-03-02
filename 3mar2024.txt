@@ -1,0 +1,4 @@
+# Company logo
+    st.sidebar.image("icc.jpg", use_column_width=True)
+
+gkcomputa@gmail.com
